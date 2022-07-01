@@ -1,0 +1,9 @@
+@import "./styles/theme.scss";
+@import "./styles/typography.scss";
+@import "./styles/base.scss";
+@import "./styles/flex.scss";
+@import "./styles/buttons.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

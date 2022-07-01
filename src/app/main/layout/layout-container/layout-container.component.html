@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    [(opened)]="opened"
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="'navigation'"
+    [mode]="'side'"
+  >
+    <layout-side-nav></layout-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <header>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button type="button" mat-button (click)="toggleDrawer()">
+            <mat-icon
+              *ngIf="opened"
+              aria-hidden="false"
+              aria-label="Example home icon"
+            >
+              arrow_back_ios</mat-icon
+            >
+            <mat-icon
+              *ngIf="!opened"
+              aria-hidden="false"
+              aria-label="Example home icon"
+            >
+              arrow_forward_ios</mat-icon
+            >
+          </button>
+
+          <div class="right">
+            <button
+              (click)="darkMode(false)"
+              *ngIf="isDarkMode"
+              mat-icon-button
+              aria-label="Example icon button with a vertical three dot icon"
+            >
+              <mat-icon>bedtime</mat-icon>
+            </button>
+            <button
+              (click)="darkMode(true)"
+              *ngIf="!isDarkMode"
+              mat-icon-button
+              aria-label="Example icon button with a vertical three dot icon"
+            >
+              <mat-icon>brightness_5</mat-icon>
+            </button>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </header>
+
+    <header>
+      <mat-toolbar color="accent">
+        <mat-toolbar-row>
+          <div class="status-header">
+            <span>Status</span>
+            <span class="spacer"></span>
+            <mat-icon>home</mat-icon>
+            <mat-icon matBadge="22" matBadgePosition="above after"
+              >email</mat-icon
+            >
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </header>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
